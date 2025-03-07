@@ -1,6 +1,6 @@
 import express from 'express';
 var router = express.Router();
-let todos = [];
+let todos: Array<string>= [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

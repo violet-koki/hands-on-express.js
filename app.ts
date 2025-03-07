@@ -3,9 +3,9 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-
-import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
+import { Request, Response, NextFunction } from 'express';
+import indexRouter from './routes/index.ts';
+import usersRouter from './routes/users.ts';
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
